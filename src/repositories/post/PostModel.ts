@@ -4,4 +4,20 @@ import PostSchema from './PostSchema';
 
 // interface IUserModel extends mongoose.Document {}
 
-export const Post: Model<IPostModel> = model<IPostModel>('Post', new PostSchema());
+const postSchema = new PostSchema({
+  collection: 'posts',
+
+  toJSON: {
+    transform: (doc: any, ret: any) => {
+      ret.id = ret.originalId;
+    },
+  },
+
+  toObject: {
+    transform: (doc: any, ret: any) => {
+      ret.id = ret.originalId;
+    },
+  },
+});
+
+export const Post: Model<IPostModel> = model<IPostModel>('Post', postSchema);

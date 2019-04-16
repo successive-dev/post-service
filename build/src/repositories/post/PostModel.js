@@ -6,4 +6,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = require("mongoose");
 var PostSchema_1 = __importDefault(require("./PostSchema"));
 // interface IUserModel extends mongoose.Document {}
-exports.Post = mongoose_1.model('Post', new PostSchema_1.default());
+var postSchema = new PostSchema_1.default({
+    collection: 'posts',
+    toJSON: {
+        transform: function (doc, ret) {
+            ret.id = ret.originalId;
+        },
+    },
+    toObject: {
+        transform: function (doc, ret) {
+            ret.id = ret.originalId;
+        },
+    },
+});
+exports.Post = mongoose_1.model('Post', postSchema);

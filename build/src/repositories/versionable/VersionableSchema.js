@@ -16,7 +16,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose_1 = require("mongoose");
 var VersionableSchema = /** @class */ (function (_super) {
     __extends(VersionableSchema, _super);
-    function VersionableSchema(userSchema) {
+    function VersionableSchema(userSchema, options) {
         var _this = this;
         var VersionSchema = Object.assign({
             createdAt: {
@@ -33,7 +33,7 @@ var VersionableSchema = /** @class */ (function (_super) {
                 type: String,
             },
         }, userSchema);
-        _this = _super.call(this, VersionSchema) || this;
+        _this = _super.call(this, VersionSchema, options) || this;
         return _this;
     }
     return VersionableSchema;

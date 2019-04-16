@@ -101,7 +101,8 @@ var PostClass = /** @class */ (function () {
                         _a = req.body.post, text = _a.text, createdBy = _a.createdBy;
                         console.log({ text: text, createdBy: createdBy });
                         return [4 /*yield*/, PostRepository_1.default.createPost({
-                                text: text, createdBy: createdBy
+                                createdBy: createdBy,
+                                text: text,
                             })];
                     case 1:
                         newPost = _b.sent();

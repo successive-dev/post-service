@@ -59,7 +59,6 @@ export default class VersionableRepository {
       const previousDoc: IPostModel = doc.toObject();
       delete previousDoc._id;
       delete previousDoc.createdAt;
-
       // Replicating the updated data into previous data
       const newDoc = Object.assign(previousDoc, dataToUpdate);
 

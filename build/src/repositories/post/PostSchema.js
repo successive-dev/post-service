@@ -19,7 +19,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var VersionableSchema_1 = __importDefault(require("../versionable/VersionableSchema"));
 var PostSchema = /** @class */ (function (_super) {
     __extends(PostSchema, _super);
-    function PostSchema() {
+    function PostSchema(options) {
         var _this = this;
         var baseSchema = {
             _id: { type: String, required: true },
@@ -31,7 +31,7 @@ var PostSchema = /** @class */ (function (_super) {
             likes: { type: [String], required: false },
             text: { type: String, required: true },
         };
-        _this = _super.call(this, baseSchema) || this;
+        _this = _super.call(this, baseSchema, options) || this;
         return _this;
     }
     return PostSchema;

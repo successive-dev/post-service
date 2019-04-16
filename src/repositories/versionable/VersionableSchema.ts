@@ -1,7 +1,7 @@
 import { Schema } from 'mongoose';
 
 export default class VersionableSchema extends Schema {
-  constructor(userSchema: any) {
+  constructor(userSchema: any, options: any) {
     const VersionSchema = Object.assign(
       {
         createdAt: {
@@ -20,6 +20,6 @@ export default class VersionableSchema extends Schema {
       },
       userSchema,
     );
-    super(VersionSchema);
+    super(VersionSchema, options);
   }
 }

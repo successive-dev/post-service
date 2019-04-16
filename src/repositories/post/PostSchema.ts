@@ -1,7 +1,7 @@
 import VersionableSchema from '../versionable/VersionableSchema';
 
 class PostSchema extends VersionableSchema {
-  constructor() {
+  constructor(options: any) {
     const baseSchema = {
       _id: { type: String, required: true },
       createdBy: {
@@ -12,7 +12,7 @@ class PostSchema extends VersionableSchema {
       likes: {type: [ String ],  required: false},
       text: {type: String, required: true},
     };
-    super(baseSchema);
+    super(baseSchema, options);
   }
 }
 

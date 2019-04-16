@@ -1,4 +1,3 @@
-import { hash } from 'bcrypt';
 import { NextFunction, Request, Response } from 'express';
 import postRepo from '../../repositories/post/PostRepository';
 
@@ -36,7 +35,8 @@ class PostClass {
       const { text, createdBy } = req.body.post;
       console.log({text, createdBy});
       const newPost = await postRepo.createPost({
-        text, createdBy
+        createdBy,
+        text,
       });
       console.log(newPost);
       res.send(newPost);
