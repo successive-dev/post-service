@@ -13,6 +13,7 @@ export default class VersionableRepository {
       const originalId = this.genObjectId();
       const id = originalId;
       Object.assign(data, { _id: id, originalId });
+      console.log('Data===========', data);
       return await this.model.create(data);
     } catch (ex) {
       throw new Error("Can't create document");

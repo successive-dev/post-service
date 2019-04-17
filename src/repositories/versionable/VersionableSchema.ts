@@ -5,7 +5,7 @@ export default class VersionableSchema extends Schema {
     const VersionSchema = Object.assign(
       {
         createdAt: {
-          default: Date(),
+          default: () => Date(),
           required: true,
           type: String,
         },
