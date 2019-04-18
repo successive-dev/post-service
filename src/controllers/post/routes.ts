@@ -16,6 +16,14 @@ router
     '/',
     post.post,
   )
+  .post(
+    '/like',
+    post.like,
+  )
+  .post(
+    '/dislike',
+    post.dislike,
+  )
   .put(
     '/',
     post.put,

@@ -45,6 +45,31 @@ class PostClass {
     }
   }
 
+  public async like(req: any, res: any, next: any) {
+    try {
+      console.log('Inside like(controller) pre');
+      console.log(req.body);
+      const { id, likedBy } = req.body;
+      const likedPost = await postRepo.like(id, likedBy);
+      console.log('Controller.ts [likedPost]', likedPost);
+      res.send(likedPost);
+    } catch ( error ) {
+      return next({ error: error.message, status: 400 });
+    }
+  }
+  public async dislike(req: any, res: any, next: any) {
+    try {
+      console.log('Inside like(controller) pre');
+      console.log(req.body);
+      const { id, likedBy } = req.body;
+      const dislikedPost = await postRepo.dislike(id, likedBy);
+      console.log('Controller.ts [dislikedPost]', dislikedPost);
+      res.send(dislikedPost);
+    } catch ( error ) {
+      return next({ error: error.message, status: 400 });
+    }
+  }
+
   public async put(req: Request, res: Response, next: NextFunction) {
     try {
       const { id, dataToUpdate } = req.body;
